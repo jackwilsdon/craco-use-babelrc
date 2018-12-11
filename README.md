@@ -4,25 +4,16 @@ A [craco] plugin that enables `.babelrc` in [create-react-app] 2.
 
 ## Why?
 
-You might think you could just do this to enable `.babelrc` support;
+As it turns out, it's not quite as straight-forward as just setting
+`babel.loaderOptions.babelrc` to `true` to enable `.babelrc` support — you also
+have to take into account the following;
 
-```JavaScript
-// craco.config.js
+ * Enabling this option does not clear the existing `react-app` preset added by
+   create-react-app
+ * Jest does not use this option, instead requiring a custom transform
 
-module.exports = {
-  babel: {
-    loaderOptions: {
-      babelrc: true,
-    },
-  },
-};
-```
-
-However this actually still leaves the `react-app` babel preset enabled! If
-you're fine with this then you don't need this plugin and can just enable
-`.babelrc` using the configuration above.
-
-This plugin also clears the preset list for the loader.
+This plugin provides `.babelrc` support for both normal builds and Jest tests,
+whilst clearing any presets which may be added by create-react-app.
 
 ## Installation
 
