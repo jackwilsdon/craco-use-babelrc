@@ -1,6 +1,6 @@
 # craco-use-babelrc
 
-A [craco] plugin that enables `.babelrc` in [create-react-app] 2.
+A [craco] plugin that enables `.babelrc` in [create-react-app] 2 and 3.
 
 ## Why?
 
@@ -33,7 +33,7 @@ yarn add @jackwilsdon/craco-use-babelrc
 ## Usage
 
 Simply enable the plugin in your `craco.config.js`, there's nothing to
-configure!
+configure!  If you're using create-react-app 3 you'll need to remove the `babel` section in your package.json
 
 ```JavaScript
 // craco.config.js
